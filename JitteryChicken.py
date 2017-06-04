@@ -9,7 +9,7 @@ Created on Sun Jun  4 00:19:40 2017
 """
 This file contains the JitteryChicken class, which is a sub-class of FuriousChicken
 The make_your_move() function of FuriousChicken has been overidden here
-Author: Foo Barstein
+Modified from original author Foo Barstein
 Date: 31 May 2016
 """
 
@@ -31,7 +31,7 @@ class JitteryChicken(FuriousChicken):
         what_to_do = random.randint(1,3)
 
         #randomly decide what body part to attack or defend
-        #add a if statement to prevent empty range for randrange() BUG
+        #added a if statement to prevent empty range for randrange() BUG
         if len(self.get_body_parts()) != 0:
             num = random.randint(0, len(self.get_body_parts())-1) #a random number from 1 to however many body parts this chicken has
             body_part = self.body_parts[num] #select the random body part from the list of this chicken's body parts
