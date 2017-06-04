@@ -14,12 +14,13 @@ import time
 
 #import the chicken classes we want to create
 from JitteryChicken import *
+from IntelligentChicken import *
 
 #make two chicken objects - two JitteryChicken objects are created here for example.  
 #We can create any type of chicken class, as long as it is a sub-class of FuriousChicken
 #Ideally, we will create two different types of chickens to see which is superior
 chick1 = JitteryChicken("Bocker")
-chick2 = JitteryChicken("Sloucher")
+chick2 = IntelligentChicken("SteveTheIntelligent")
 
 #set the two chickens as opponents
 chick1.set_opponent(chick2)
@@ -104,4 +105,4 @@ while not game_over:
     round_num += 1
 
     #pause so we can read what's happening
-    #time.sleep(2)
+    time.sleep(5)

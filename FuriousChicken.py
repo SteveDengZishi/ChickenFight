@@ -101,6 +101,10 @@ class FuriousChicken:
         #calculate the new health 
         current_health = self.get_health(body_part)
         new_health = current_health + x
+        
+        #prevent negative health which resulting in bug
+        if new_health < 0:
+            new_health = 0
 
         #set the new health
         self.set_health(body_part, new_health)
