@@ -36,10 +36,6 @@ while not game_over:
     #print out the round number
     print("\nROUND {}\n".format(round_num))
     
-    #need to reset Chicken's attacking and defending to prevent BUG
-    chick1.reset_attack_and_defence()
-    chick2.reset_attack_and_defence()
-    
     #let the underdog go first 20% of the time
     num = random.randint(1,5)
     if num == 1:
@@ -108,5 +104,9 @@ while not game_over:
     #increase the round number
     round_num += 1
 
+    #need to reset Chicken's attacking and defending to prevent BUG
+    chick1.reset_attack_and_defence()
+    chick2.reset_attack_and_defence()
+    
     #pause so we can read what's happening
-    #time.sleep(5)
+    time.sleep(2)

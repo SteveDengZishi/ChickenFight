@@ -145,9 +145,9 @@ class FuriousChicken:
         """this method allows the chicken to regain a bit of strength by increasing its health value"""
         print("{} is resting".format(self.name))
 
-        #give an extra point for resting
+        #give 5 point for resting
         for body_part in self.get_body_parts():
-            self.adjust_health(body_part, 1)
+            self.adjust_health(body_part, 5)
 
     def defend(self, body_part):
         """defend the selected body part of the chicken against attacks by setting the defending property to the body part the chicken wants to protect

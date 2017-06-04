@@ -19,8 +19,8 @@ class IntelligentChicken(FuriousChicken):
     
     def make_your_move(self):
 
-        #if your average health is below 85 percent, recuperate
-        if self.get_average_health() <= 60 and self.count_injuries() >= 8:
+        #if your average health is below 70 percent, recuperate
+        if self.get_average_health() <= 70 and self.count_injuries() >= 7:
             self.recuperate()
          
         #if opponent is defending a body part, do not attack that part
