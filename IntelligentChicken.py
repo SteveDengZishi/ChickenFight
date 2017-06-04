@@ -20,7 +20,7 @@ class IntelligentChicken(FuriousChicken):
     def make_your_move(self):
 
         #if your average health is below 85 percent, recuperate
-        if self.get_average_health() <= 85 and self.count_injuries() >= 6:
+        if self.get_average_health() <= 60 and self.count_injuries() >= 8:
             self.recuperate()
          
         #if opponent is defending a body part, do not attack that part
@@ -29,8 +29,14 @@ class IntelligentChicken(FuriousChicken):
             opponent_defending = opponent.get_defending()
             
             #analyze opponent and find the weakest part to attack
-            weakest_part = 'comb'
-            second_weakest = 'wattle'
+            weakest_part = opponent.get_body_parts()[0]
+            
+            #condition check to prevent index out of range
+            if len(opponent.get_body_parts()) > 1:
+                second_weakest = opponent.get_body_parts()[1]
+            else:
+                second_weakest = weakest_part
+                
             for bodyPart in opponent.get_body_parts():
                 if opponent.get_health(bodyPart) < opponent.get_health(weakest_part):
                     second_weakest = weakest_part
@@ -38,6 +44,8 @@ class IntelligentChicken(FuriousChicken):
             
             if weakest_part != opponent_defending:
                 self.attack(weakest_part)
+            elif len(opponent.get_body_parts()) <=1:
+                self.recuperate()
             else:
                 self.attack(second_weakest)
         #never defend as it is purely based on luck 

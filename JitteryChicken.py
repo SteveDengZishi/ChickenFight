@@ -31,9 +31,14 @@ class JitteryChicken(FuriousChicken):
         what_to_do = random.randint(1,3)
 
         #randomly decide what body part to attack or defend
-        num = random.randint(0, len(self.get_body_parts())-1) #a random number from 1 to however many body parts this chicken has
-        body_part = self.body_parts[num] #select the random body part from the list of this chicken's body parts
-
+        #add a if statement to prevent empty range for randrange() BUG
+        if len(self.get_body_parts()) != 0:
+            num = random.randint(0, len(self.get_body_parts())-1) #a random number from 1 to however many body parts this chicken has
+            body_part = self.body_parts[num] #select the random body part from the list of this chicken's body parts
+        else:
+            print("{} is dead now!!!".format(self.name))
+            return
+            
         if what_to_do == 1:
             #attack!
             self.attack(body_part)

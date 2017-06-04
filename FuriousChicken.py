@@ -67,10 +67,11 @@ class FuriousChicken:
 
     def get_average_health(self):
         sum = 0
-        num_body_parts = 0
+        #number should be hard-coded as if many parts are destroyed there will be BUG
+        num_body_parts = 13
         for body_part in self.get_body_parts():
             sum += self.get_health(body_part)
-            num_body_parts += 1
+            #num_body_parts += 1
 
         if num_body_parts >= 1:
             avg = sum / num_body_parts
@@ -102,7 +103,7 @@ class FuriousChicken:
         current_health = self.get_health(body_part)
         new_health = current_health + x
         
-        #prevent negative health which resulting in bug
+        #prevent negative health which resulting in BUG
         if new_health < 0:
             new_health = 0
 
